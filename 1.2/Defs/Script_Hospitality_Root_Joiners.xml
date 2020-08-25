@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>Hospitality_Joiners_Unused</defName>
+    <rootSelectionWeight>1.3</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <expireDaysRange>4~8</expireDaysRange>
+    <canGiveRoyalFavor>true</canGiveRoyalFavor>
+    <questDescriptionAndNameRules>
+      <rulesStrings>
+        <li>lodgersLabel-&gt;guest</li>
+        <li>lodgersLabelPlural-&gt;guests</li>
+      </rulesStrings>
+    </questDescriptionAndNameRules>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName-&gt;shelter for [lodgerIndef]</li>
+        <li>questName-&gt;hospitality for [lodgerIndef]</li>
+        <li>questName-&gt;hosting [lodgerIndef]</li>
+        <li>questName-&gt;[lodgerIndef] needing help</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;protecting [lodgerIndef]</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;safeguarding [lodgerIndef]</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;security for [lodgerIndef]</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;[lodgerIndef] under threat</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;[lodgerIndef] in danger</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;[lodgerIndef] with enemies</li>
+        <li>questName(generateThreats==true,priority=1)-&gt;[lodgerIndef] in the crosshairs</li>
+        <!-- Asker is null -->
+        <li>lodgerIndef(askerIsNull==true,lodgersCount==1)-&gt;[lodgers0_label]</li>
+        <li>lodgerIndef(askerIsNull==true,lodgersCount==1)-&gt;a [lodgers0_title]</li>
+        <li>lodgerIndef(askerIsNull==true,lodgersCount&gt;=2)-&gt;travelers</li>
+        <!-- Asker is faction leader -->
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount==1)-&gt;[lodgers0_label]</li>
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount==1)-&gt;a [lodgers0_title]</li>
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount==1)-&gt;a friend</li>
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount==1)-&gt;an ally</li>
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount&gt;=2)-&gt;friends</li>
+        <li>lodgerIndef(asker_factionLeader==True,lodgersCount&gt;=2)-&gt;allies</li>
+        <!-- Asker is royal -->
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1,p=3)-&gt;a [asker_royalTitleInCurrentFaction]</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)-&gt;[asker_label]</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)-&gt;a royal</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)-&gt;a noble</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)-&gt;an aristocrat</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount&gt;=2)-&gt;royals</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount&gt;=2)-&gt;nobles</li>
+        <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount&gt;=2)-&gt;aristocrats</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <include>
+        <li>QuestHospitalityCommon</li>
+      </include>
+      <rulesStrings>
+        <!-- General use -->
+        <li>lodgersDef(lodgersCount==1)-&gt;[lodgers0_nameDef]</li>
+        <li>lodgersDef(lodgersCount&gt;=2)-&gt;the guests</li>
+        <li>joinerEnding-&gt;You'll be able to direct [lodgersDef] the same way you direct your own colonists.[specialNeedsExplanation]</li>
+        <li>specialNeedsExplanation(asker_royalInCurrentFaction==True,priority=1)-&gt; You'll need to satisfy any special royal needs the guests may have.</li>
+        <li>specialNeedsExplanation-&gt;</li>
+        <!-- Asker is null, single joiner -->
+        <li>questDescription(askerIsNull==true,lodgersCount==1)-&gt;A [lodgers0_title] named [lodgers0_nameFull] wants you to protect [lodgers0_objective] at [map_definite] for [shuttleDelayTicks_duration]. [allLodgerInfo][threatsInfo1]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo1(generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;\n\n[lodgers0_nameDef] was recently caught [wrongAct]. Seeking revenge, [enemyFaction_pawnsPlural] will come for [lodgers0_objective] as long as [lodgers0_pronoun] is with you. [enemyGroupsParagraph]</li>
+        <li>threatsInfo1(generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;\n\n[threatsInfoMechRaidsSingleHuman] [enemyGroupsParagraph]</li>
+        <li>threatsInfo1(generateThreats==true,allowedThreats==MechClusters)-&gt;\n\n[threatsInfoMechClustersSingleHuman]</li>
+        <li>threatsInfo1(generateThreats==false)-&gt;</li>
+        <li>wrongAct-&gt;insulting the [PersonalCharacteristic] of [enemyFaction_leader_nameDef], [enemyFaction_leaderTitle] of [enemyFaction_name]</li>
+        <li>wrongAct-&gt;stealing livestock from [enemyFaction_name]</li>
+        <li>wrongAct-&gt;stealing food from [enemyFaction_name]</li>
+        <li>wrongAct-&gt;stealing spiritual artifacts from [enemyFaction_name]</li>
+        <li>wrongAct-&gt;sabotaging the cryptosleep caskets of [enemyFaction_name]</li>
+        <!-- Asker is null, multiple joiners -->
+        <li>questDescription(askerIsNull==true,lodgersCount&gt;=2)-&gt;A group of [lodgersCount] travelers want you to host them at [map_definite] for [shuttleDelayTicks_duration]. [allLodgerInfo][threatsInfo2]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo2(generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;\n\nThese travelers were recently invited to an important ceremony with [enemyFaction_name], but showed up drunk and profaned the ritual. [enemyFaction_name] is now sending raids after them. [enemyGroupsParagraph]</li>
+        <li>threatsInfo2(generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;\n\n[threatsInfoMechRaidsMultiHuman] [enemyGroupsParagraph]</li>
+        <li>threatsInfo2(generateThreats==true,allowedThreats==MechClusters)-&gt;\n\nThe travelers recently [mechViolation], and have been targeted by an orbiting mechanoid swarm. As long as they are present, mechanoid clusters will drop from orbit on a regular basis.</li>
+        <li>threatsInfo2(generateThreats==false)-&gt;</li>
+        <!-- Asker is faction leader, single joiner -->
+        <li>questDescription(asker_factionLeader==True,lodgersCount==1,generateThreats==false)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name] is requesting a favor. [asker_possessive] friend [lodgers0_nameFull] is interested in learning about other cultures. [asker_nameDef] wants you to host [lodgers0_nameDef] at [map_definite] for [shuttleDelayTicks_duration]. [allLodgerInfo]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount==1,generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name] is requesting a favor. [asker_possessive] friend, a [lodgers0_age]-year-old [lodgers0_title] named [lodgers0_nameDef], was caught writing vicious insults about [enemyFaction_leader_nameFull]'s [PersonalCharacteristic]. [asker_nameDef] is asking for you to guard [lodgers0_nameDef] for [shuttleDelayTicks_duration], until [asker_pronoun] can smooth over relations with [enemyFaction_name]. [allLodgerInfo]\n\nSince [enemyFaction_leader_nameDef] is the [enemyFaction_leaderTitle] of [enemyFaction_name], [enemyFaction_leader_pronoun] has sent groups of [enemyFaction_pawnsPlural] to hunt the insulter [lodgers0_nameDef]. [enemyGroupsParagraph]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount==1,generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name] is requesting a favor. [asker_possessive] friend, a [lodgers0_age]-year-old [lodgers0_title] named [lodgers0_nameDef], recently [mechViolation]. [asker_nameDef] is asking for you to guard [lodgers0_nameDef] for [shuttleDelayTicks_duration], until [asker_pronoun] can sooth the mechanoid hive. [allLodgerInfo]\n\nMechanoids will come to hunt the violator [lodgers0_nameDef]. [enemyGroupsParagraph]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount==1,generateThreats==true,allowedThreats==MechClusters)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name] is requesting a favor. [asker_possessive] friend, a [lodgers0_age]-year-old [lodgers0_title] named [lodgers0_nameDef], recently [mechViolation]. [asker_nameDef] is asking for you to guard [lodgers0_nameDef] for [shuttleDelayTicks_duration]. Mechanoid clusters will arrive as long as [lodgers0_nameDef] is present. [allLodgerInfo][threatsInfo1] [allLodgerInfo]\n\n[commonDescEnding] [joinerEnding]</li>
+        <!-- Asker is faction leader, multiple joiners -->
+        <li>questDescription(asker_factionLeader==True,lodgersCount&gt;=2,generateThreats==false)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], recently rescued [lodgersCount] [asker_faction_pawnsPlural] from an enemy jail. [asker_nameDef] wants you to guard them at [map_definite] for [shuttleDelayTicks_duration] until [asker_pronoun] can send a shuttle to collect them. [allLodgerInfo]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount&gt;=2,generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], recently rescued [lodgersCount] [asker_faction_pawnsPlural] from the prisons of [enemyFaction_name]. [asker_nameDef] wants you to guard them at [map_definite] for [shuttleDelayTicks_duration] until [asker_pronoun] can send a shuttle to collect them. [allLodgerInfo]\n\nThe [asker_faction_pawnsPlural] know secrets about the [secretInfo] of [enemyFaction_name], so they will be hunted. [enemyGroupsParagraph]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount&gt;=2,generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], recently rescued [lodgersCount] [asker_faction_pawnsPlural] from a crytosleep vault. [asker_nameDef] wants you to guard them at [map_definite] for [shuttleDelayTicks_duration] until [asker_pronoun] can send a shuttle to collect them. [allLodgerInfo]\n\nThe [asker_faction_pawnsPlural] will be hunted by mechanoids. [enemyGroupsParagraph]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>questDescription(asker_factionLeader==True,lodgersCount&gt;=2,generateThreats==true,allowedThreats==MechClusters)-&gt;[asker_nameFull], [asker_faction_leaderTitle] of [asker_faction_name], recently rescued [lodgersCount] [asker_faction_pawnsPlural] from a mechanoid hive's holding pen. [asker_nameDef] wants you to guard them at [map_definite] for [shuttleDelayTicks_duration] until [asker_pronoun] can send a shuttle to collect them. [allLodgerInfo]\n\nThe mechs are tracking their former prisoners. As long as the [asker_faction_pawnsPlural] are with you, mechanoid combat clusters will drop near [map_definite] on a regular basis.\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>secretInfo-&gt;military capabilities</li>
+        <li>secretInfo-&gt;moral transgressions</li>
+        <li>secretInfo-&gt;weapons research</li>
+        <li>secretInfo-&gt;prison camps</li>
+        <li>secretInfo-&gt;[enemyFaction_leaderTitle]</li>
+        <!-- Asker is royal (implicitly joiner) single joiner -->
+        <li>questDescription(asker_royalInCurrentFaction==True,lodgersCount==1)-&gt;[asker_nameFull], a [asker_royalTitleInCurrentFaction] of [asker_faction_name], is fleeing a troubling political situation and wants to hide out at [map_definite] for [shuttleDelayTicks_duration]. [allLodgerInfo][threatsInfo5]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo5(generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;\n\n[asker_nameDef]'s enemies have hired [enemyFaction_name] to hunt [asker_objective]. They will attack repeatedly as long as [asker_nameDef] is present. [enemyGroupsParagraph]</li>
+        <li>threatsInfo5(generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;\n\n[asker_nameDef]'s enemies provoked mechanoids into to hunting [asker_objective]. The mechs will attack repeatedly as long as [asker_nameDef] is present. [enemyGroupsParagraph]</li>
+        <li>threatsInfo5(generateThreats==true,allowedThreats==MechClusters)-&gt;\n\n[asker_nameDef]'s enemies have somehow provoked mechanoids into hunting [asker_objective], so mech combat clusters will drop near [map_definite] repeatedly as long as [asker_nameDef] is present.</li>
+        <li>threatsInfo5(generateThreats==false)-&gt;</li>
+        <!-- Asker is royal (implicity one of the joiners) multiple joiners -->
+        <li>questDescription(asker_royalInCurrentFaction==True,lodgersCount&gt;=2)-&gt;[asker_nameFull], a [asker_royalTitleInCurrentFaction] of [asker_faction_name], wants to stay at [map_definite] for [shuttleDelayTicks_duration] with [lodgersCountMinusOne] court [allyAllies]. [allLodgerInfo][threatsInfo6]\n\n[commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo6(generateThreats==true,allowedThreats==Raids,enemyFaction!=Mechanoid)-&gt;\n\n[asker_nameDef] and [asker_possessive] [allyAllies] have been targeted for death and need a safe place to stay until they can purge their court. However, [asker_nameDef]'s enemies have hired [enemyFaction_name] to hunt [asker_objective]. They will attack repeatedly until [asker_nameDef] leaves. [enemyGroupsParagraph]</li>
+        <li>threatsInfo6(generateThreats==true,allowedThreats==Raids,enemyFaction==Mechanoid)-&gt;\n\n[asker_nameDef] and [asker_possessive] [allyAllies] have been targeted for death and need a safe place to stay until they can purge their court. However, [asker_nameDef]'s enemies have provoked [enemyFaction_name] into hunting [asker_objective]. Mechanoids will attack repeatedly until [asker_nameDef] leaves. [enemyGroupsParagraph]</li>
+        <li>threatsInfo6(generateThreats==true,allowedThreats==MechClusters)-&gt;\n\n[asker_nameDef] and [asker_possessive] [allyAllies] have been targeted for death and need a safe place to stay until they can purge their court. However, [asker_nameDef]'s enemies have somehow provoked mechanoids into hunting [asker_objective], so mech combat clusters will regularly drop onto [map_definite] until [asker_nameDef] leaves.</li>
+        <li>threatsInfo6(generateThreats==false)-&gt;</li>
+        <li>allyAllies(lodgersCountMinusOne==1)-&gt;ally</li>
+        <li>allyAllies(lodgersCountMinusOne&gt;=2)-&gt;allies</li>
+        <!-- Asker is royal, single joiner separate from asker -->
+        <!--
+        <li>questDescription(asker_royalInCurrentFaction==True,lodgersCount==1,priority=1)->[asker_nameFull], a [asker_royalTitleInCurrentFaction] of [asker_faction_name], wants you to host one of his courtiers, a [lodgers0_age]-year-old [lodgers0_title] named [lodgers0_nameDef], for [shuttleDelayTicks_duration]. It's supposed to be a learning experience - the idea is that [lodgers0_pronoun] can experience a gritty life on the rimworld, to broaden [lodgers0_possessive] experience. [allLodgerInfo]
+\nIn order to make things interesting, [asker_nameDef] will send insults to [enemyFaction_name] to provoke them to attack as long as [lodgers0_nameDef] is present. [commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo7(generateThreats==true)-></li>
+        <li>threatsInfo7(generateThreats==false)-></li>
+        -->
+        <!-- Asker is royal, multiple joiners separate from asker -->
+        <!--
+        <li>questDescription(asker_royalInCurrentFaction==True,lodgersCount>=2,priority=1)->[asker_nameFull], a [asker_royalTitleInCurrentFaction] of [asker_faction_name], wishes to punish some courtiers who have displeased [asker_objective], but doesn't want it to look like a punishment. [asker_pronoun] asks if the [lodgersCount] disfavored individuals can stay at [map_definite] for [shuttleDelayTicks_duration]. [allLodgerInfo]
+\nUnfortunately, the [enemyFaction_pawnsPlural] of [enemyFaction_name] hate [asker_nameDef] and [asker_possessive] entire court, so they'll send raids after you. [commonDescEnding] [joinerEnding]</li>
+        <li>threatsInfo8(generateThreats==true)-></li>
+        <li>threatsInfo8(generateThreats==false)-></li>
+        -->
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_SubScript">
+          <def>Hospitality_Util_Setup</def>
+          <parms>
+            <royalAskerNeedsResearchedFurniture>true</royalAskerNeedsResearchedFurniture>
+            <!-- so it's possible to host him -->
+          </parms>
+        </li>
+        <!-- Determine lodgers count -->
+        <!-- <li Class="QuestNode_SubScript"> -->
+        <!-- <def>Hospitality_Util_DecideRandomLodgerCountHuman</def> -->
+        <!-- </li> -->
+        <li Class="QuestNode_IsSet">
+          <name>lodgersCount</name>
+          <elseNode Class="QuestNode_SubScript">
+            <def>Hospitality_Util_DecideRandomLodgerCount</def>
+          </elseNode>
+        </li>
+        <!-- Set lodgers pawn kind (always the same) -->
+        <li Class="empireMaker.QuestNode_GetPawnKind">
+          <pawn>$asker</pawn>
+          <storeAs>lodgersPawnKind</storeAs>
+          <options>
+            <li>
+              <kindDef>SpaceRefugee_Clothed</kindDef>
+              <weight>1</weight>
+            </li>
+          </options>
+        </li>
+        <!-- Chance of lodgers being expert fighters -->
+        <li Class="QuestNode_Chance">
+          <chance>0.4</chance>
+          <node Class="QuestNode_Set">
+            <name>lodgersSpecialRequest</name>
+            <value>ExpertFighter</value>
+          </node>
+        </li>
+        <!-- Generate lodgers -->
+        <li Class="QuestNode_Set">
+          <name>lodgersCountToGenerate</name>
+          <value>$lodgersCount</value>
+        </li>
+        <li Class="QuestNode_Set">
+          <!-- for text use -->
+          <name>lodgersCountMinusOne</name>
+          <value>$($lodgersCount-1)</value>
+        </li>
+        <li Class="QuestNode_HasRoyalTitleInCurrentFaction">
+          <pawn>$asker</pawn>
+          <node Class="QuestNode_IsFreeWorldPawn">
+            <pawn>$asker</pawn>
+            <node Class="QuestNode_Sequence">
+              <nodes>
+                <!-- lodgers include asker -->
+                <li Class="QuestNode_AddToList">
+                  <name>lodgers</name>
+                  <value>$asker</value>
+                </li>
+                <li Class="QuestNode_Set">
+                  <name>lodgersCountToGenerate</name>
+                  <value>$($lodgersCountToGenerate - 1)</value>
+                </li>
+                <!-- Biocode asker's weapons (we took his reference manually, so we need to biocode his weapons manually) -->
+                <li Class="QuestNode_BiocodeWeapons">
+                  <pawns>$asker</pawns>
+                </li>
+              </nodes>
+            </node>
+          </node>
+        </li>
+        <li Class="QuestNode_LoopCount">
+          <loopCount>$lodgersCountToGenerate</loopCount>
+          <node Class="QuestNode_GeneratePawn">
+            <kindDef>$lodgersPawnKind</kindDef>
+            <addToList>lodgers</addToList>
+            <!-- <specialRequest>$lodgersSpecialRequest</specialRequest> -->
+            <allowAddictions>false</allowAddictions>
+            <biocodeWeaponChance>1</biocodeWeaponChance>
+          </node>
+        </li>
+        <!-- Random chance to have a mood threshold on the lodgers -->
+        <li Class="QuestNode_Chance">
+          <chance>0.5</chance>
+          <node Class="QuestNode_Set">
+            <name>lodgersHaveMoodThreshold</name>
+            <value>true</value>
+          </node>
+        </li>
+        <!-- Royals are guaranteed to have mood threshold -->
+        <li Class="QuestNode_HasRoyalTitleInCurrentFaction">
+          <pawn>$asker</pawn>
+          <node Class="QuestNode_Set">
+            <name>lodgersHaveMoodThreshold</name>
+            <value>true</value>
+          </node>
+        </li>
+        <!-- Execute mood threshold effects -->
+        <li Class="QuestNode_IsTrue">
+          <value>$lodgersHaveMoodThreshold</value>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetRandomInRangeFloat">
+                <storeAs>lodgersMoodThreshold</storeAs>
+                <range>0.15~0.3</range>
+              </li>
+              <li Class="QuestNode_MoodBelow">
+                <pawns>$lodgers</pawns>
+                <threshold>$lodgersMoodThreshold</threshold>
+                <node Class="QuestNode_Sequence">
+                  <nodes>
+                    <li Class="QuestNode_Letter">
+                      <label>Guest unhappy: {SUBJECT_definite}</label>
+                      <text>{SUBJECT_definite}, who you were charged to protect and keep happy, has been below the minimum mood of [lodgersMoodThreshold_percent] too long.\n\n[remainingWillNowLeave]</text>
+                    </li>
+                    <li Class="QuestNode_End">
+                      <outcome>Fail</outcome>
+                    </li>
+                  </nodes>
+                </node>
+              </li>
+            </nodes>
+          </node>
+        </li>
+        <!-- Can only accept this quest if can satisfy all colonist and lodger bedroom requirements -->
+        <li Class="QuestNode_RequirementsToAcceptBedroom">
+          <pawns>$lodgers</pawns>
+        </li>
+        <!-- If lodgers have no mood threshold and aren't royal,
+             Chance to make lodgers unhealthy -->
+        <li Class="QuestNode_IsTrue">
+          <value>$lodgersHaveMoodThreshold</value>
+          <elseNode Class="QuestNode_HasRoyalTitleInCurrentFaction">
+            <!-- TODO: This checks the asker but it needs to check all lodgers -->
+            <pawn>$asker</pawn>
+            <elseNode Class="QuestNode_Chance">
+              <chance>0.5</chance>
+              <node Class="QuestNode_Sequence">
+                <nodes>
+                  <li Class="QuestNode_Set">
+                    <name>lodgersUnhealthy</name>
+                    <value>true</value>
+                  </li>
+                  <li Class="QuestNode_Subscript">
+                    <def>Util_RandomSelectDiseaseHuman</def>
+                  </li>
+                  <li Class="QuestNode_Subscript">
+                    <def>Hospitality_Util_AddHealthConditions</def>
+                  </li>
+                </nodes>
+              </node>
+            </elseNode>
+          </elseNode>
+        </li>
+        <!-- Assign home faction to lodger(s) -->
+        <li Class="QuestNode_ExtraFaction">
+          <factionOf>$asker</factionOf>
+          <pawns>$lodgers</pawns>
+          <factionType>HomeFaction</factionType>
+        </li>
+        <!-- Lock their apparel -->
+        <li Class="QuestNode_SetAllApparelLocked">
+          <pawns>$lodgers</pawns>
+        </li>
+        <!-- Execute main worker script -->
+        <li Class="QuestNode_SubScript">
+          <def>Hospitality_Util_Worker</def>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

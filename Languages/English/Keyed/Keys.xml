@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <phychicAll_t># Common use of psychic skill</phychicAll_t>
+  <phychicAll_d>Even if you only have the title of one of the factions, the use of psychic skill is considered legal.</phychicAll_d>
+  <delVanilla_t># Hide Vanilla Empire</delVanilla_t>
+  <delVanilla_d>Hide the vanilla empire in the game.</delVanilla_d>
+  <questAmount_t># Quest generation multiplier</questAmount_t>
+  <questAmount_d>Controls the amount of quests that occur. If you have a large number of empires, you may need a lot of quests.</questAmount_d>
+  <make_d>Turn this faction into an empire.\n\n
+Bug Resolution: Use when there is an error or the text of the quest is not displayed. Although it significantly reduces errors. All pawns in this faction will appear with a 100% title.\n\n
+* Need to restart and new game</make_d>
+  <relation_t>       - relationship</relation_t>
+  <relation_d>It's a relationship with this faction. If set to default, it follows the faction's default settings.\n\n
+If this faction is an empire, even if you choose an permanent enemy, it is set as an hostile.\n\n
+The Vanilla Empire value is the same value as the Rimworld Vanilla Empire. Unlike neutral, the relationship does not decrease or increase.</relation_d>
+  <apparel_t>       - royal apparel</apparel_t>
+  <apparel_d>Off: Makes them not want royal clothes.\n\n
+Forced Vanilla Apparel: Let them wear vanilla royal apparel. It is possible that clothes do not fit their body.\n\n
+* Need to restart and new game</apparel_d>
+  <trade_t>       - trade need permit</trade_t>
+  <trade_d>Turning it on will require the royal class to trade.\n\n* Need to restart and new game</trade_d>
+  <en_make_no>Off</en_make_no>
+  <en_make_empire>==== Empire ====</en_make_empire>
+  <en_make_bugFix>==== Empire : Bug Resolution ====</en_make_bugFix>
+  <en_relation_basic>Default</en_relation_basic>
+  <en_relation_empire>Vanilla Empire value</en_relation_empire>
+  <en_relation_ally>Ally</en_relation_ally>
+  <en_relation_neutral>Neutral</en_relation_neutral>
+  <en_relation_enemy>Hostile</en_relation_enemy>
+  <en_relation_permanentEnemy>Permanent Enemy</en_relation_permanentEnemy>
+  <en_apparel_off>Off</en_apparel_off>
+  <en_apparel_forced>Forced Vanilla Apparel</en_apparel_forced>
+  <en_apparel_basic>Basic</en_apparel_basic>
+  <debugMode_t># Debug Mode</debugMode_t>
+  <debugMode_d>show detail log</debugMode_d>
+
+</LanguageData>

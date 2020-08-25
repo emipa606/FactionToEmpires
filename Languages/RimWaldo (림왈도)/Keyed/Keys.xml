@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <phychicAll_t># 초능력 사용 공용화</phychicAll_t>
+  <phychicAll_d>세력들 중 하나의 세력의 계급만 가지고 있더라도 초능력 사용이 합법으로 간주됩니다.</phychicAll_d>
+  <delVanilla_t># 바닐라 제국 숨기기</delVanilla_t>
+  <delVanilla_d>바닐라 제국을 게임에서 숨깁니다.</delVanilla_d>
+  <questAmount_t># 퀘스트 생성량 곱하기</questAmount_t>
+  <questAmount_d>퀘스트가 발생하는 양을 조절합니다. 제국의 수가 많을 경우 많은 퀘스트가 필요할 수 있습니다.</questAmount_d>
+  <make_d>이 세력을 제국으로 만듭니다.\n\n
+버그 해결모드: 퀘스트의 내용이 보이지 않거나 에러가 날때 사용하십시오. 에러 발생을 현저히 줄여주지만. 이 세력의 모든 폰들은 100% 작위를 가지고 등장하게됩니다.\n\n
+* 재시작이 필요합니다. 새 게임에만 적용됩니다.</make_d>
+  <relation_t>       - 관계</relation_t>
+  <relation_d>이 세력과의 관계입니다. 기본값으로 설정할 경우 세력의 기본 설정을 따릅니다.\n\n
+이 세력이 제국이라면 영원한 적을 선택하더라도 적대로 설정됩니다.\n\n
+바닐라 제국 값은 림월드 바닐라의 제국과 같은 관계 값 입니다. 중립과는 다르게 관계가 감소하거나 증가하지 않습니다.</relation_d>
+  <apparel_t>       - 귀족의 옷 요구</apparel_t>
+  <apparel_d>비활성: 귀족이 더이상 귀족의 옷을 요구하지 않습니다.\n\n
+바닐라 옷 강제: 바닐라의 귀족 옷을 입을 수 있도록 합니다. 옷이 몸에 맞지 않을 수 있습니다.\n\n
+* 재시작이 필요합니다. 새 게임에만 적용됩니다.</apparel_d>
+  <trade_t>       - 거래에 계급 필요</trade_t>
+  <trade_d>활성화하면 이 세력과 거래하기 위해선 일정 이상의 계급을 필요로 하게됩니다.\n\n
+* 재시작이 필요합니다. 새 게임에만 적용됩니다.</trade_d>
+  <en_make_no>비활성</en_make_no>
+  <en_make_empire>==== 제  국 ====</en_make_empire>
+  <en_make_bugFix>==== 제  국 : 버그 해결모드 ====</en_make_bugFix>
+  <en_relation_basic>세력 기본값</en_relation_basic>
+  <en_relation_empire>바닐라 제국 값</en_relation_empire>
+  <en_relation_ally>동맹</en_relation_ally>
+  <en_relation_neutral>중립</en_relation_neutral>
+  <en_relation_enemy>적대</en_relation_enemy>
+  <en_relation_permanentEnemy>영원한 적</en_relation_permanentEnemy>
+  <en_apparel_off>비활성</en_apparel_off>
+  <en_apparel_forced>바닐라 옷 강제</en_apparel_forced>
+  <en_apparel_basic>기본</en_apparel_basic>
+  <debugMode_t># 디버그 모드</debugMode_t>
+  <debugMode_d>자세한 로그 보기</debugMode_d>
+</LanguageData>
