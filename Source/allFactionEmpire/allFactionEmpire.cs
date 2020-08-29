@@ -160,7 +160,7 @@ namespace empireMaker
             Log.Message($"## Empire Maker Start Install");
 
             // 제국
-            FactionDef baseFactionDef = FactionDefOf.Empire;
+            FactionDef empireFactionDef = FactionDefOf.Empire;
 
             // 제국 타이틀
             List<RoyalTitleDef> royalTitleDefList = new List<RoyalTitleDef>();
@@ -228,10 +228,12 @@ namespace empireMaker
 
 
                     // 팩션 제국화
-                    faction.royalFavorLabel = baseFactionDef.royalFavorLabel;
+                    faction.royalFavorLabel = empireFactionDef.royalFavorLabel;
+                    faction.royalFavorIconPath = empireFactionDef.royalFavorIconPath;
+                    faction.raidLootMaker = empireFactionDef.raidLootMaker;
 
-                    faction.royalTitleInheritanceRelations = baseFactionDef.royalTitleInheritanceRelations;
-                    faction.royalTitleInheritanceWorkerClass = baseFactionDef.royalTitleInheritanceWorkerClass;
+                    faction.royalTitleInheritanceRelations = empireFactionDef.royalTitleInheritanceRelations;
+                    faction.royalTitleInheritanceWorkerClass = empireFactionDef.royalTitleInheritanceWorkerClass;
                     //faction.minTitleForBladelinkWeapons = baseF.minTitleForBladelinkWeapons;
                     string customTitleTag = $"{faction.defName}Title";
                     faction.royalTitleTags = new List<string>() { customTitleTag };
@@ -766,12 +768,12 @@ namespace empireMaker
 
                     // 커스텀 계급 규칙
                     List<RoyalImplantRule> royalImplantRuleList = new List<RoyalImplantRule>();
-                    if(baseFactionDef.royalImplantRules != null)
+                    if(empireFactionDef.royalImplantRules != null)
                     {
-                        for (int i = 0; i < baseFactionDef.royalImplantRules.Count; i++)
+                        for (int i = 0; i < empireFactionDef.royalImplantRules.Count; i++)
                         {
                             // 복제
-                            RoyalImplantRule baseRoyalImplantRule = baseFactionDef.royalImplantRules[i];
+                            RoyalImplantRule baseRoyalImplantRule = empireFactionDef.royalImplantRules[i];
                             RoyalImplantRule newRoyalImplantRule = new RoyalImplantRule
                             {
                                 implantHediff = baseRoyalImplantRule.implantHediff,

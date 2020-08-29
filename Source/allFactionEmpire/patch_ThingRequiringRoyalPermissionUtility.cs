@@ -9,6 +9,7 @@ namespace empireMaker
 
     // 초능력 관련 불법 체크 알고리즘 수정
 
+
     internal class Patch_ThingRequiringRoyalPermissionUtility
     {
         [HarmonyPatch(typeof(ThingRequiringRoyalPermissionUtility), "IsViolatingRulesOf")]
