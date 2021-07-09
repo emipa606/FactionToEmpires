@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using HarmonyLib;
-using RimWorld.QuestGen;
-using RimWorld;
-using Verse;
-using UnityEngine;
-using RimWorld.Planet;
-
-namespace empireMaker
+﻿namespace empireMaker
 {
     // 퀘스트 asker 종족, 팩션제한
     /*
@@ -36,8 +25,4 @@ namespace empireMaker
 
     }
     */
-    
-    
-
-
 }

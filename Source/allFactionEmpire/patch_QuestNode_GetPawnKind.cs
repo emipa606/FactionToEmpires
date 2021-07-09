@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using HarmonyLib;
-using RimWorld.QuestGen;
-using RimWorld;
-using Verse;
-using UnityEngine;
-using RimWorld.Planet;
-
-namespace empireMaker
+﻿namespace empireMaker
 {
-
     // 퀘스트 def를 읽어올 때 퀘스트 방문객 pawn kind 제한
     /*
     internal class patch_QuestNode_GetPawnKind
@@ -60,6 +48,4 @@ namespace empireMaker
 
     }
     */
-    
-
 }

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using HarmonyLib;
-using RimWorld.QuestGen;
-using RimWorld;
-using Verse;
-using UnityEngine;
-using RimWorld.Planet;
-
-namespace empireMaker
+﻿namespace empireMaker
 {
     /*
     // 생성시 퀘스트 방문객 pawn kind 제한
@@ -117,6 +106,4 @@ namespace empireMaker
 
     }
     */
-
-
 }

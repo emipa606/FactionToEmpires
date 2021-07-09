@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using HarmonyLib;
-using RimWorld.QuestGen;
-using RimWorld;
-using Verse;
-using UnityEngine;
-using RimWorld.Planet;
-
-namespace empireMaker
+﻿namespace empireMaker
 {
-
     // 캐러밴 공물 징수원 수정
     /*
     public class IncidentWorker_CaravanArrivalTributeCollector : IncidentWorker_TraderCaravanArrival
@@ -45,6 +33,4 @@ namespace empireMaker
         public const string TributeCollectorTraderKindCategory = "TributeCollector";
     }
     */
-
-
 }

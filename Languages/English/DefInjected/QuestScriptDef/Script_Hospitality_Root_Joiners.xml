@@ -85,5 +85,4 @@
   <!--<Hospitality_Joiners.root.nodes.10.node.nodes.1.node.nodes.0.label>Guest unhappy: {SUBJECT_definite}</Hospitality_Joiners.root.nodes.10.node.nodes.1.node.nodes.0.label>-->
   <!--<Hospitality_Joiners.root.nodes.10.node.nodes.1.node.nodes.0.text>{SUBJECT_definite}, who you were charged to protect and keep happy, has been below the minimum mood of [lodgersMoodThreshold_percent] too long.\n\n[remainingWillNowLeave]</Hospitality_Joiners.root.nodes.10.node.nodes.1.node.nodes.0.text>-->
   <!--<Hospitality_Joiners.root.nodes.12.elseNode.elseNode.node.nodes.0.name>lodgersUnhealthy</Hospitality_Joiners.root.nodes.12.elseNode.elseNode.node.nodes.0.name>-->
-
 </LanguageData>
