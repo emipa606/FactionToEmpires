@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Faction to Empires (Continued)</name>
   <packageId>Mlie.FactionToEmpires</packageId>
@@ -27,7 +27,7 @@
     <li>brrainz.harmony</li>
     <li>UnlimitedHugs.HugsLib</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of YAYOs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2028063878
 
@@ -36,16 +36,20 @@ Incompatible with
 - ferian faction
 - lapelli faction
 
-[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
 	[tr]
 		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
 		[td][url=https://github.com/emipa606/FactionToEmpires][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
-	[/tr]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/XLUGyo4.png[/img][/td]
+        [td][img]https://i.imgur.com/6KqTKks.png[/img][/td]
+    [/tr]
 [/table]
 	
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 
 [b][h1][Overview][/h1][/b]
 [list][*]You can make any faction or race to empire.
@@ -61,7 +65,7 @@ Now you can become a member of their royal family.[/list]
 [*]Once you get their title, you can trade with them and call the escort.
 [*]They will naturally appear in your game with royal titles.
 [*]The pawns of each empire that comes as a guard or guest, were automatically selected from the pawns owned by the faction and developed to show the appropriate pawns.
-I&apos;ve put a lot of effort into this automation. This will feel natural.
+I've put a lot of effort into this automation. This will feel natural.
 
 
 [img]https://i.imgur.com/p7Fv1Z6.gif[/img][/list]
@@ -87,17 +91,17 @@ So, how to apply this mod is as follows.
 [This Mod]
 
 
-[*]If a mod faction doesn&apos;t wear vanilla clothes and doesn&apos;t have a royal Apparel, you can&apos;t resolve that race&apos;s mood debuff, so you should turn off the &quot;royal need royal&apos;s apparel&quot; in the options.[/list]
+[*]If a mod faction doesn't wear vanilla clothes and doesn't have a royal Apparel, you can't resolve that race's mood debuff, so you should turn off the "royal need royal's apparel" in the options.[/list]
 
 
 
 
 [b][h1][Known issues][/h1][/b]
 [*]Some factions can cause a bug where the content of the quest does not appear.
-To fix this, set to &apos;Empire : Bug Resolution&apos; in the options.
-If this doesn&apos;t work. Disable this faction in the options to avoid becoming an empire.
+To fix this, set to 'Empire : Bug Resolution' in the options.
+If this doesn't work. Disable this faction in the options to avoid becoming an empire.
 
-[*]Turn off rimsenal&apos;s &apos;make empire&apos; option. If you make it an Empire, you will get an error.[/list]
+[*]Turn off rimsenal's 'make empire' option. If you make it an Empire, you will get an error.[/list]
 
 
 
@@ -117,7 +121,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2026063610[/list]
 [*]Royal Ascent Quest for each faction (ending quest)
 
 
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -128,4 +132,3 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2026063610[/list]
 [/list]
 </description>
 </ModMetaData>
-
