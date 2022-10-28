@@ -1,6 +1,6 @@
 # FactionToEmpires
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of YAYOs mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2028063878
@@ -10,19 +10,10 @@ Incompatible with
 - ferian faction
 - lapelli faction
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/FactionToEmpires]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 **# [Overview]
@@ -44,7 +35,7 @@ Now you can become a member of their royal family.
 - Once you get their title, you can trade with them and call the escort.
 - They will naturally appear in your game with royal titles.
 - The pawns of each empire that comes as a guard or guest, were automatically selected from the pawns owned by the faction and developed to show the appropriate pawns.
-I&apos;ve put a lot of effort into this automation. This will feel natural.
+I've put a lot of effort into this automation. This will feel natural.
 
 
 ![Image](https://i.imgur.com/p7Fv1Z6.gif)
@@ -74,7 +65,7 @@ So, how to apply this mod is as follows.
 [This Mod]
 
 
-- If a mod faction doesn&apos;t wear vanilla clothes and doesn&apos;t have a royal Apparel, you can&apos;t resolve that race&apos;s mood debuff, so you should turn off the &quot;royal need royal&apos;s apparel&quot; in the options.
+- If a mod faction doesn't wear vanilla clothes and doesn't have a royal Apparel, you can't resolve that race's mood debuff, so you should turn off the "royal need royal's apparel" in the options.
 
 
 
@@ -83,10 +74,10 @@ So, how to apply this mod is as follows.
 **# [Known issues]
 **
 - Some factions can cause a bug where the content of the quest does not appear.
-To fix this, set to &apos;Empire : Bug Resolution&apos; in the options.
-If this doesn&apos;t work. Disable this faction in the options to avoid becoming an empire.
+To fix this, set to 'Empire : Bug Resolution' in the options.
+If this doesn't work. Disable this faction in the options to avoid becoming an empire.
 
-- Turn off rimsenal&apos;s &apos;make empire&apos; option. If you make it an Empire, you will get an error.
+- Turn off rimsenal's 'make empire' option. If you make it an Empire, you will get an error.
 
 
 
@@ -111,7 +102,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2026063610
 - Royal Ascent Quest for each faction (ending quest)
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -121,6 +112,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2026063610
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 
