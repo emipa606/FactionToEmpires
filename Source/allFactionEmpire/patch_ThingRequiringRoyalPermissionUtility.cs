@@ -7,8 +7,9 @@ namespace empireMaker;
 
 internal class Patch_ThingRequiringRoyalPermissionUtility
 {
-    [HarmonyPatch(typeof(ThingRequiringRoyalPermissionUtility), "IsViolatingRulesOf")]
-    [HarmonyPatch(new[] { typeof(Def), typeof(Pawn), typeof(Faction), typeof(int) })]
+    [HarmonyPatch(typeof(ThingRequiringRoyalPermissionUtility),
+        nameof(ThingRequiringRoyalPermissionUtility.IsViolatingRulesOf),
+        [typeof(Def), typeof(Pawn), typeof(Faction), typeof(int)])]
     public class Patch
     {
         [HarmonyPrefix]

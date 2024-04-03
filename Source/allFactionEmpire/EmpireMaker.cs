@@ -39,18 +39,18 @@ public class EmpireMaker : ModBase
     public static float questAmount = 1f;
     public static bool debugMode;
 
-    public static List<FactionDef> factionDefList = new List<FactionDef>();
-    public static List<MakeType> factionToEmpireList = new List<MakeType>();
-    public static List<SettingHandle<RelationType>> relationSettingList = new List<SettingHandle<RelationType>>();
-    public static List<RelationType> relationList = new List<RelationType>();
-    public static List<ApparelType> apparelList = new List<ApparelType>();
-    public static List<bool> collectorList = new List<bool>();
-    public static List<bool> tradePermitList = new List<bool>();
-    public static List<FactionDef> willBeEmpireFactionDefList = new List<FactionDef>();
+    public static readonly List<FactionDef> factionDefList = [];
+    public static readonly List<MakeType> factionToEmpireList = [];
+    public static readonly List<SettingHandle<RelationType>> relationSettingList = [];
+    public static readonly List<RelationType> relationList = [];
+    public static readonly List<ApparelType> apparelList = [];
+    public static List<bool> collectorList = [];
+    public static readonly List<bool> tradePermitList = [];
+    public static List<FactionDef> willBeEmpireFactionDefList = [];
 
 
     // 비호환 하드모드 패키지 아이디
-    public static List<string> hardModsToConvert = new List<string> { "projectjedi.factions", "kikohi.forsakens" };
+    public static readonly List<string> hardModsToConvert = ["projectjedi.factions", "kikohi.forsakens"];
 
     private SettingHandle<bool> debugModeSetting;
 
@@ -189,7 +189,6 @@ public class EmpireMaker : ModBase
 
     public static void PatchDef()
     {
-
         // 제국
         var empireFactionDef = FactionDefOf.Empire;
 
@@ -270,11 +269,11 @@ public class EmpireMaker : ModBase
             faction.royalTitleInheritanceWorkerClass = empireFactionDef.royalTitleInheritanceWorkerClass;
             //faction.minTitleForBladelinkWeapons = baseF.minTitleForBladelinkWeapons;
             var customTitleTag = $"{faction.defName}Title";
-            faction.royalTitleTags = new List<string> { customTitleTag };
+            faction.royalTitleTags = [customTitleTag];
 
             if (faction.colorSpectrum == null)
             {
-                faction.colorSpectrum = new List<Color> { Color.white };
+                faction.colorSpectrum = [Color.white];
             }
 
             if (debugMode)
@@ -494,7 +493,7 @@ public class EmpireMaker : ModBase
                 var newRoyalTitleDef = new RoyalTitleDef
                 {
                     defName = $"{royalTitleDef.defName}_{faction.defName}",
-                    tags = new List<string>()
+                    tags = []
                 };
                 newRoyalTitleDef.tags.AddRange(faction.royalTitleTags);
 
@@ -527,7 +526,7 @@ public class EmpireMaker : ModBase
                 //n.needFallPerDayAuthority = b.needFallPerDayAuthority;
                 if (royalTitleDef.permits != null)
                 {
-                    newRoyalTitleDef.permits = new List<RoyalTitlePermitDef>();
+                    newRoyalTitleDef.permits = [];
                     for (var j = 0; j < royalTitleDef.permits.Count; j++)
                     {
                         var newPermit = royalTitleDef.permits[j];
@@ -613,7 +612,7 @@ public class EmpireMaker : ModBase
                     pawnKindDef.allowRoyalApparelRequirements = false; // 복장 요구 여부
                     if (pawnKindDef.techHediffsTags == null)
                     {
-                        pawnKindDef.techHediffsTags = new List<string>();
+                        pawnKindDef.techHediffsTags = [];
                     }
 
                     pawnKindDef.techHediffsTags.AddRange(new List<string>
@@ -629,14 +628,14 @@ public class EmpireMaker : ModBase
                         ? allPawnsLeaders.RandomElement()
                         : allPawns[allPawns.Count - 1];
 
-                    pawnKindDef.titleSelectOne = new List<RoyalTitleDef>();
+                    pawnKindDef.titleSelectOne = [];
                     pawnKindDef.titleRequired =
                         newRoyalTitleDefListNoEmperor[newRoyalTitleDefListNoEmperor.Count - 1];
                     pawnKindDef.royalTitleChance = 1f;
                     pawnKindDef.allowRoyalApparelRequirements = false;
                     if (pawnKindDef.techHediffsTags == null)
                     {
-                        pawnKindDef.techHediffsTags = new List<string>();
+                        pawnKindDef.techHediffsTags = [];
                     }
 
                     pawnKindDef.techHediffsTags.AddRange(new List<string>
@@ -681,7 +680,7 @@ public class EmpireMaker : ModBase
                             // 바닐라
                             newPawn.allowRoyalApparelRequirements =
                                 titleBasePawn.allowRoyalApparelRequirements; // 복장 요구 여부
-                            newPawn.apparelTags = new List<string> { "IndustrialBasic" };
+                            newPawn.apparelTags = ["IndustrialBasic"];
                             newPawn.apparelDisallowTags = titleBasePawn.apparelDisallowTags; // 금지 복장
                             newPawn.specificApparelRequirements =
                                 titleBasePawn.specificApparelRequirements; // 귀족 의상 강제
@@ -730,7 +729,7 @@ public class EmpireMaker : ModBase
                     newPawn.destroyGearOnDrop = randomPawn.destroyGearOnDrop;
 
                     newPawn.disallowedTraits = randomPawn.disallowedTraits == null
-                        ? new List<TraitDef>()
+                        ? []
                         : randomPawn.disallowedTraits.ListFullCopy();
 
                     newPawn.disallowedTraits.Add(TraitDefOf.Nudist);
@@ -772,7 +771,7 @@ public class EmpireMaker : ModBase
                     newPawn.techHediffsChance = titleBasePawn.techHediffsChance;
 
                     newPawn.techHediffsDisallowTags = randomPawn.techHediffsDisallowTags == null
-                        ? new List<string>()
+                        ? []
                         : randomPawn.techHediffsDisallowTags.ListFullCopy();
 
                     newPawn.techHediffsDisallowTags.Add("PainCauser");
@@ -783,7 +782,7 @@ public class EmpireMaker : ModBase
                     newPawn.techHediffsRequired = titleBasePawn.techHediffsRequired;
 
                     newPawn.techHediffsTags = randomPawn.techHediffsTags == null
-                        ? new List<string>()
+                        ? []
                         : randomPawn.techHediffsTags.ListFullCopy();
 
                     newPawn.techHediffsTags.AddRange(new List<string>
@@ -810,7 +809,7 @@ public class EmpireMaker : ModBase
                 randomPawnCopy.gearHealthRange = spaceRefugeeClothedDef.gearHealthRange;
                 if (randomPawnCopy.disallowedTraits == null)
                 {
-                    randomPawnCopy.disallowedTraits = new List<TraitDef>();
+                    randomPawnCopy.disallowedTraits = [];
                 }
 
                 randomPawnCopy.disallowedTraits.Add(TraitDefOf.Nudist);
@@ -861,7 +860,7 @@ public class EmpireMaker : ModBase
             // 계급에 따른 거래제한
             if (useTradePermit)
             {
-                var unused = new RoyalTitlePermitDef();
+                _ = new RoyalTitlePermitDef();
 
                 // 기지
                 var traderKindDefList = new List<TraderKindDef>();
@@ -879,7 +878,7 @@ public class EmpireMaker : ModBase
 
 
                 // 캐러밴
-                traderKindDefList = new List<TraderKindDef>();
+                traderKindDefList = [];
                 foreach (var caravanTraderKindDef in faction.caravanTraderKinds)
                 {
                     var newCaravanTraderKindDef = CopyTraderDef(caravanTraderKindDef);

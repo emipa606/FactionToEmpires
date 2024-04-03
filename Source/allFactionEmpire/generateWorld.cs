@@ -2,12 +2,8 @@
 
 namespace empireMaker;
 
-public class generateWorld : WorldComponent
+public class generateWorld(World world) : WorldComponent(world)
 {
-    public generateWorld(World world) : base(world)
-    {
-    }
-
     public override void FinalizeInit()
     {
         EmpireMaker.PatchRelation();
