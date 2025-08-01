@@ -187,7 +187,7 @@ public class EmpireMaker : ModBase
         }
     }
 
-    public static void PatchDef()
+    private static void PatchDef()
     {
         // 제국
         var empireFactionDef = FactionDefOf.Empire;
@@ -271,10 +271,7 @@ public class EmpireMaker : ModBase
             var customTitleTag = $"{faction.defName}Title";
             faction.royalTitleTags = [customTitleTag];
 
-            if (faction.colorSpectrum == null)
-            {
-                faction.colorSpectrum = [Color.white];
-            }
+            faction.colorSpectrum ??= [Color.white];
 
             if (debugMode)
             {
@@ -390,7 +387,7 @@ public class EmpireMaker : ModBase
                 default:
                     permitPawns.Add(allFighterPawns[0]);
                     permitPawns.Add(allFighterPawns[Mathf.RoundToInt((allFighterPawns.Count - 1) * 0.5f)]);
-                    permitPawns.Add(allFighterPawns[allFighterPawns.Count - 1]);
+                    permitPawns.Add(allFighterPawns[^1]);
                     break;
             }
 
@@ -610,10 +607,7 @@ public class EmpireMaker : ModBase
 
                     pawnKindDef.royalTitleChance = 1f;
                     pawnKindDef.allowRoyalApparelRequirements = false; // 복장 요구 여부
-                    if (pawnKindDef.techHediffsTags == null)
-                    {
-                        pawnKindDef.techHediffsTags = [];
-                    }
+                    pawnKindDef.techHediffsTags ??= [];
 
                     pawnKindDef.techHediffsTags.AddRange(new List<string>
                         { "Advanced", "ImplantEmpireRoyal", "ImplantEmpireCommon" });
@@ -626,17 +620,14 @@ public class EmpireMaker : ModBase
                 {
                     var pawnKindDef = allPawnsLeaders.Count > 0
                         ? allPawnsLeaders.RandomElement()
-                        : allPawns[allPawns.Count - 1];
+                        : allPawns[^1];
 
                     pawnKindDef.titleSelectOne = [];
                     pawnKindDef.titleRequired =
-                        newRoyalTitleDefListNoEmperor[newRoyalTitleDefListNoEmperor.Count - 1];
+                        newRoyalTitleDefListNoEmperor[^1];
                     pawnKindDef.royalTitleChance = 1f;
                     pawnKindDef.allowRoyalApparelRequirements = false;
-                    if (pawnKindDef.techHediffsTags == null)
-                    {
-                        pawnKindDef.techHediffsTags = [];
-                    }
+                    pawnKindDef.techHediffsTags ??= [];
 
                     pawnKindDef.techHediffsTags.AddRange(new List<string>
                         { "Advanced", "ImplantEmpireRoyal", "ImplantEmpireCommon" });
@@ -652,7 +643,7 @@ public class EmpireMaker : ModBase
                 for (var i = 1; i < newRoyalTitleDefList.Count - 1; i++)
                 {
                     var royalTitleDef = newRoyalTitleDefList[i];
-                    var randomPawn = allPawnsNoLeaders[allPawnsNoLeaders.Count - 1];
+                    var randomPawn = allPawnsNoLeaders[^1];
                     var newPawn = new PawnKindDef();
                     var titleBasePawn = royalPawnKindDefList[i - 1];
 
@@ -721,7 +712,7 @@ public class EmpireMaker : ModBase
                     newPawn.combatEnhancingDrugsCount = randomPawn.combatEnhancingDrugsCount;
                     newPawn.combatPower = randomPawn.combatPower;
                     newPawn.debugRandomId = randomPawn.debugRandomId;
-                    newPawn.defaultFactionType = faction; // 기본 팩션
+                    newPawn.defaultFactionDef = faction; // 기본 팩션
                     newPawn.defendPointRadius = randomPawn.defendPointRadius;
 
                     newPawn.description = randomPawn.description;
@@ -807,10 +798,7 @@ public class EmpireMaker : ModBase
                 randomPawnCopy.defName = $"SpaceRefugee_Clothed_{faction.defName}";
                 randomPawnCopy.apparelMoney = spaceRefugeeClothedDef.apparelMoney;
                 randomPawnCopy.gearHealthRange = spaceRefugeeClothedDef.gearHealthRange;
-                if (randomPawnCopy.disallowedTraits == null)
-                {
-                    randomPawnCopy.disallowedTraits = [];
-                }
+                randomPawnCopy.disallowedTraits ??= [];
 
                 randomPawnCopy.disallowedTraits.Add(TraitDefOf.Nudist);
                 randomPawnCopy.forceNormalGearQuality = spaceRefugeeClothedDef.forceNormalGearQuality;
@@ -924,17 +912,8 @@ public class EmpireMaker : ModBase
                 case RelationType.basic:
                     break;
                 case RelationType.empire:
-                    faction.permanentEnemy = false;
-                    faction.mustStartOneEnemy = false;
-                    break;
                 case RelationType.ally:
-                    faction.permanentEnemy = false;
-                    faction.mustStartOneEnemy = false;
-                    break;
                 case RelationType.neutral:
-                    faction.permanentEnemy = false;
-                    faction.mustStartOneEnemy = false;
-                    break;
                 case RelationType.enemy:
                     faction.permanentEnemy = false;
                     faction.mustStartOneEnemy = false;
@@ -962,7 +941,7 @@ public class EmpireMaker : ModBase
     }
 
 
-    public static PawnKindDef CopyPawnDef(PawnKindDef pawnKindDef)
+    private static PawnKindDef CopyPawnDef(PawnKindDef pawnKindDef)
     {
         var newPawnKindDef = new PawnKindDef
         {
@@ -992,7 +971,7 @@ public class EmpireMaker : ModBase
             combatEnhancingDrugsCount = pawnKindDef.combatEnhancingDrugsCount,
             combatPower = pawnKindDef.combatPower,
             debugRandomId = pawnKindDef.debugRandomId,
-            defaultFactionType = pawnKindDef.defaultFactionType,
+            defaultFactionDef = pawnKindDef.defaultFactionDef,
             defendPointRadius = pawnKindDef.defendPointRadius,
             description = pawnKindDef.description,
             descriptionHyperlinks = pawnKindDef.descriptionHyperlinks,
@@ -1045,7 +1024,7 @@ public class EmpireMaker : ModBase
         return newPawnKindDef;
     }
 
-    public static TraderKindDef CopyTraderDef(TraderKindDef traderKindDef)
+    private static TraderKindDef CopyTraderDef(TraderKindDef traderKindDef)
     {
         var newTraderKindDef = new TraderKindDef
         {

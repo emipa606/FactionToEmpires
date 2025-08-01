@@ -2,5 +2,14 @@
   "Continued": true,
   "CanAdd": "1",
   "CanRemove": "1",
-  "PreviewVersion": "1.5"
+  "PreviewVersion": "1.6",
+  "Patches": false,
+  "Defs": false,
+  "Assemblies": true,
+  "LinesOfCode": 52509,
+  "LinesOfXML": 0,
+  "CodeBaseSize": 75,
+  "LastXmlCleaning": "2025-08-01T15:07:57.7809748+02:00",
+  "SocialImageSet": true,
+  "SearchTags": " faction management"
 }
