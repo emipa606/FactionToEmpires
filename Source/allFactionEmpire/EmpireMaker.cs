@@ -69,9 +69,7 @@ public class EmpireMaker : ModBase
                  where
                      faction.royalFavorLabel == null &&
                      !faction.hidden &&
-                     //(faction.naturalColonyGoodwill.min >= 0 || faction.naturalColonyGoodwill.max >= 0) &&
                      !faction.mustStartOneEnemy &&
-                     //!faction.permanentEnemy &&
                      faction.pawnGroupMakers != null &&
                      !faction.isPlayer
                  select faction
@@ -137,7 +135,6 @@ public class EmpireMaker : ModBase
             relationSettingList.Add(Settings.GetHandle($"{factionDef.defName}Relation", "relation_t".Translate(),
                 "relation_d".Translate(), RelationType.basic, null, "en_relation_"));
             relationList.Add(relationSettingList[i].Value);
-            //ar_faction_relation.Add(Settings.GetHandle<en_relation>($"{f.defName}Relation", $"relation_t".Translate(), "relation_d".Translate(), en_relation.basic, null, "en_relation_").Value);
 
 
             // 왕족 의상
@@ -148,9 +145,6 @@ public class EmpireMaker : ModBase
             // 거래제한과 권한
             tradePermitList.Add(Settings.GetHandle<bool>($"{factionDef.defName}TradePermit", "trade_t".Translate(),
                 "trade_d".Translate()).Value);
-
-            // 공물 징수원
-            //ar_faction_collector.Add(Settings.GetHandle<bool>($"{f.defName}Collector", $"     - (not developed yet)use tribute collector", "A caravan trader selling royal favors.\n\n* Need to restart and new game", true).Value);
         }
 
         // 디버그 모드
@@ -244,7 +238,6 @@ public class EmpireMaker : ModBase
             }
 
             var bugFixMode = factionToEmpireList[factionDef] == MakeType.bugFix;
-            //bool useCollectorTrader = ar_faction_collector[z];
             var useTradePermit = tradePermitList[factionDef];
 
             var permitPawns = new List<PawnKindDef>();
@@ -267,7 +260,6 @@ public class EmpireMaker : ModBase
 
             faction.royalTitleInheritanceRelations = empireFactionDef.royalTitleInheritanceRelations;
             faction.royalTitleInheritanceWorkerClass = empireFactionDef.royalTitleInheritanceWorkerClass;
-            //faction.minTitleForBladelinkWeapons = baseF.minTitleForBladelinkWeapons;
             var customTitleTag = $"{faction.defName}Title";
             faction.royalTitleTags = [customTitleTag];
 
@@ -278,21 +270,20 @@ public class EmpireMaker : ModBase
                 Log.Message("B");
             }
 
-            foreach (var g in faction.pawnGroupMakers)
+            foreach (var option in faction.pawnGroupMakers.Select(maker => maker.options))
             {
                 if (debugMode)
                 {
-                    Log.Message(g.options.Count.ToString());
+                    Log.Message(option.Count.ToString());
                 }
 
-                foreach (var pawnGenOption in g.options)
+                foreach (var p in option.Select(o => o.kind))
                 {
                     if (debugMode)
                     {
                         Log.Message("b");
                     }
 
-                    var p = pawnGenOption.kind;
                     if (allPawns.Contains(p))
                     {
                         continue;
@@ -490,37 +481,38 @@ public class EmpireMaker : ModBase
                 var newRoyalTitleDef = new RoyalTitleDef
                 {
                     defName = $"{royalTitleDef.defName}_{faction.defName}",
-                    tags = []
+                    tags =
+                    [
+                        .. faction.royalTitleTags
+                    ],
+                    awardThought = royalTitleDef.awardThought,
+                    bedroomRequirements = royalTitleDef.bedroomRequirements,
+                    changeHeirQuestPoints = royalTitleDef.changeHeirQuestPoints,
+                    commonality = royalTitleDef.commonality,
+                    debugRandomId = royalTitleDef.debugRandomId, // 디버그 랜덤아이디?
+                    decreeMentalBreakCommonality = royalTitleDef.decreeMentalBreakCommonality,
+                    decreeMinIntervalDays = royalTitleDef.decreeMinIntervalDays,
+                    decreeMtbDays = royalTitleDef.decreeMtbDays,
+                    decreeTags = royalTitleDef.decreeTags,
+                    description = royalTitleDef.description,
+                    descriptionHyperlinks = royalTitleDef.descriptionHyperlinks,
+                    disabledJoyKinds = royalTitleDef.disabledJoyKinds,
+                    disabledWorkTags = royalTitleDef.disabledWorkTags,
+                    favorCost = royalTitleDef.favorCost,
+                    fileName = royalTitleDef.fileName, // 파일명?
+                    foodRequirement = royalTitleDef.foodRequirement,
+                    generated = royalTitleDef.generated, // 생성완료?
+                    ignoreConfigErrors = royalTitleDef.ignoreConfigErrors,
+                    index = royalTitleDef.index, // 인덱스?
+                    inheritanceWorkerOverrideClass = royalTitleDef.inheritanceWorkerOverrideClass,
+                    label = royalTitleDef.label,
+                    labelFemale = royalTitleDef.labelFemale,
+                    lostThought = royalTitleDef.lostThought,
+                    minExpectation = royalTitleDef.minExpectation,
+                    modContentPack = royalTitleDef.modContentPack,
+                    modExtensions = royalTitleDef.modExtensions
                 };
-                newRoyalTitleDef.tags.AddRange(faction.royalTitleTags);
 
-                newRoyalTitleDef.awardThought = royalTitleDef.awardThought;
-                newRoyalTitleDef.bedroomRequirements = royalTitleDef.bedroomRequirements;
-                newRoyalTitleDef.changeHeirQuestPoints = royalTitleDef.changeHeirQuestPoints;
-                newRoyalTitleDef.commonality = royalTitleDef.commonality;
-                newRoyalTitleDef.debugRandomId = royalTitleDef.debugRandomId; // 디버그 랜덤아이디?
-                newRoyalTitleDef.decreeMentalBreakCommonality = royalTitleDef.decreeMentalBreakCommonality;
-                newRoyalTitleDef.decreeMinIntervalDays = royalTitleDef.decreeMinIntervalDays;
-                newRoyalTitleDef.decreeMtbDays = royalTitleDef.decreeMtbDays;
-                newRoyalTitleDef.decreeTags = royalTitleDef.decreeTags;
-                newRoyalTitleDef.description = royalTitleDef.description;
-                newRoyalTitleDef.descriptionHyperlinks = royalTitleDef.descriptionHyperlinks;
-                newRoyalTitleDef.disabledJoyKinds = royalTitleDef.disabledJoyKinds;
-                newRoyalTitleDef.disabledWorkTags = royalTitleDef.disabledWorkTags;
-                newRoyalTitleDef.favorCost = royalTitleDef.favorCost;
-                newRoyalTitleDef.fileName = royalTitleDef.fileName; // 파일명?
-                newRoyalTitleDef.foodRequirement = royalTitleDef.foodRequirement;
-                newRoyalTitleDef.generated = royalTitleDef.generated; // 생성완료?
-                newRoyalTitleDef.ignoreConfigErrors = royalTitleDef.ignoreConfigErrors;
-                newRoyalTitleDef.index = royalTitleDef.index; // 인덱스?
-                newRoyalTitleDef.inheritanceWorkerOverrideClass = royalTitleDef.inheritanceWorkerOverrideClass;
-                newRoyalTitleDef.label = royalTitleDef.label;
-                newRoyalTitleDef.labelFemale = royalTitleDef.labelFemale;
-                newRoyalTitleDef.lostThought = royalTitleDef.lostThought;
-                newRoyalTitleDef.minExpectation = royalTitleDef.minExpectation;
-                newRoyalTitleDef.modContentPack = royalTitleDef.modContentPack;
-                newRoyalTitleDef.modExtensions = royalTitleDef.modExtensions;
-                //n.needFallPerDayAuthority = b.needFallPerDayAuthority;
                 if (royalTitleDef.permits != null)
                 {
                     newRoyalTitleDef.permits = [];
@@ -652,7 +644,7 @@ public class EmpireMaker : ModBase
                         randomPawn = allPawnsLeaders.RandomElement(); // stellach 계급은 무조건 리더이어야하므로 리더 값을 베이스로 생성
                     }
 
-                    newPawn.defName = $"royal_{royalTitleDef.defName}_{faction.defName}"; //
+                    newPawn.defName = $"royal_{royalTitleDef.defName}_{faction.defName}";
                     newPawn.label = titleBasePawn.label; // 라벨
                     newPawn.titleRequired = newRoyalTitleDefList[i]; // 정해진 계급
 
@@ -692,10 +684,10 @@ public class EmpireMaker : ModBase
 
                     newPawn.alternateGraphicChance = randomPawn.alternateGraphicChance;
                     newPawn.alternateGraphics = randomPawn.alternateGraphics;
-                    newPawn.apparelAllowHeadgearChance = titleBasePawn.apparelAllowHeadgearChance; //
+                    newPawn.apparelAllowHeadgearChance = titleBasePawn.apparelAllowHeadgearChance;
 
 
-                    newPawn.apparelIgnoreSeasons = titleBasePawn.apparelIgnoreSeasons; //
+                    newPawn.apparelIgnoreSeasons = titleBasePawn.apparelIgnoreSeasons;
                     newPawn.apparelMoney = titleBasePawn.apparelMoney; // 복장 가격
                     newPawn.apparelRequired = titleBasePawn.apparelRequired; // 복장 강제
 
@@ -704,7 +696,7 @@ public class EmpireMaker : ModBase
                     newPawn.backstoryCryptosleepCommonality = randomPawn.backstoryCryptosleepCommonality;
                     newPawn.backstoryFilters = randomPawn.backstoryFilters;
                     newPawn.backstoryFiltersOverride = randomPawn.backstoryFiltersOverride;
-                    newPawn.biocodeWeaponChance = titleBasePawn.biocodeWeaponChance; //
+                    newPawn.biocodeWeaponChance = titleBasePawn.biocodeWeaponChance;
                     newPawn.canArriveManhunter = randomPawn.canArriveManhunter;
                     newPawn.canBeSapper = randomPawn.canBeSapper;
                     newPawn.chemicalAddictionChance = randomPawn.chemicalAddictionChance;
@@ -952,7 +944,7 @@ public class EmpireMaker : ModBase
             allowRoyalRoomRequirements = pawnKindDef.allowRoyalRoomRequirements,
             alternateGraphicChance = pawnKindDef.alternateGraphicChance,
             alternateGraphics = pawnKindDef.alternateGraphics,
-            apparelAllowHeadgearChance = pawnKindDef.apparelAllowHeadgearChance, //
+            apparelAllowHeadgearChance = pawnKindDef.apparelAllowHeadgearChance,
             apparelColor = pawnKindDef.apparelColor,
             apparelDisallowTags = pawnKindDef.apparelDisallowTags,
             apparelIgnoreSeasons = pawnKindDef.apparelIgnoreSeasons,
@@ -963,7 +955,7 @@ public class EmpireMaker : ModBase
             backstoryCryptosleepCommonality = pawnKindDef.backstoryCryptosleepCommonality,
             backstoryFilters = pawnKindDef.backstoryFilters,
             backstoryFiltersOverride = pawnKindDef.backstoryFiltersOverride,
-            biocodeWeaponChance = pawnKindDef.biocodeWeaponChance, //
+            biocodeWeaponChance = pawnKindDef.biocodeWeaponChance,
             canArriveManhunter = pawnKindDef.canArriveManhunter,
             canBeSapper = pawnKindDef.canBeSapper,
             chemicalAddictionChance = pawnKindDef.chemicalAddictionChance,

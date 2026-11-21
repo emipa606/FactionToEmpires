@@ -8,7 +8,7 @@ namespace empireMaker;
 [HarmonyPatch(typeof(ThingRequiringRoyalPermissionUtility),
     nameof(ThingRequiringRoyalPermissionUtility.IsViolatingRulesOf), typeof(Def), typeof(Pawn), typeof(Faction),
     typeof(int))]
-public class ThingRequiringRoyalPermissionUtility_IsViolatingRulesOf
+public static class ThingRequiringRoyalPermissionUtility_IsViolatingRulesOf
 {
     [HarmonyPrefix]
     public static bool Prefix(ref bool __result, Def implantOrWeapon, Pawn pawn, Faction faction,

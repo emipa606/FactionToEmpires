@@ -9,11 +9,11 @@ namespace empireMaker;
 // 방문객 pawnkind 수정
 public class QuestNode_GetPawnKind : QuestNode
 {
-    public SlateRef<List<Option>> options;
+    private SlateRef<List<Option>> options;
 
-    public SlateRef<Pawn> pawn;
+    private SlateRef<Pawn> pawn;
 
-    [NoTranslate] public SlateRef<string> storeAs;
+    [NoTranslate] private SlateRef<string> storeAs;
 
     protected override bool TestRunInt(Slate slate)
     {
@@ -43,8 +43,6 @@ public class QuestNode_GetPawnKind : QuestNode
             {
                 var = PawnKindDef.Named($"SpaceRefugee_Clothed_{asker.Faction.def.defName}");
             }
-
-            //
         }
         else if (option.anyAnimal)
         {
