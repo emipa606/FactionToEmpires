@@ -1,5 +1,8 @@
 # Changelog for FactionToEmpires
 
+1.7.1 - Updated dependency: UnlimitedHugs.HugsLib -> HugsLib - 1.7 Waylith Fix (Continued)
+
+
 1.7.0 - Mod updated for 1.7 and passed autotests
 
 

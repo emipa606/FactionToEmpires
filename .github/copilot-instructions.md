@@ -1,79 +1,78 @@
 # GitHub Copilot Instructions for Faction to Empires (Continued)
 
+Welcome to the Faction to Empires (Continued) mod for RimWorld! This mod allows you to convert factions and races into empires, providing unique quests and interactions. Below are the detailed instructions for using GitHub Copilot in this modding project.
+
 ## Mod Overview and Purpose
 
-Faction to Empires (Continued) is an update to the original Faction to Empires mod. This mod allows you to convert any faction or race into an empire within the RimWorld game. Players can choose which factions they want to become empires and can even add races from other mods as empires. Once a faction is an empire, it will offer quests that grant royal favor, and pawns from the empire can visit your settlement as guests or guards. The mod also introduces royal titles and unique royal apparel, as well as the ability to trade with empires and call for an escort. 
+The Faction to Empires (Continued) mod is an update and continuation of YAYOs mod. It allows players to convert factions and races into empires, giving them unique quests, titles, and interactions. The mod provides a new level of complexity and depth to faction management in RimWorld.
 
 ## Key Features and Systems
 
-### Features:
-- Convert any faction or race into an empire.
-- Choose specific factions to become empires.
-- Add races from other mods as empires.
-- Receive quests from empires that grant royal favor.
-- Pawns from empires can visit your settlement as guests or guards.
-- Royal titles and unique royal apparel.
-- Trade with empires.
-- Call for an escort from empires.
-- Automatic generation of appropriate pawns for guards and guests.
-- Special techprints from each empire.
-- Option to remove vanilla empires.
-- Starting and desertion events.
-- Royal Ascent Quest for each faction.
+### Conversion to Empires
+- Players can convert factions into empires, gaining access to unique quests and titles.
+- Royal favor quests are available, allowing players to interact with the royal family of the empire.
+- Empires can provide special techprints and other rewards.
 
-### Systems:
-- Quest system: Empires offer quests that grant royal favor.
-- Royal title system: Pawns from empires can receive royal titles.
-- Royal apparel: Unique royal apparel for pawns from empires.
-- Trade system: Trade with empires.
-- Escort system: Call for an escort from empires.
-- Pawn generation: Automatic generation of appropriate pawns for guards and guests.
-- Event system: Starting and desertion events.
-- Royal Ascent Quest: Ending quest for each faction.
+### Royal Interactions
+- Pawns of empires can act as guards and guests, naturally appearing in the game with royal titles.
+- Royal needs can be managed, including the requirement for royal apparel.
+
+### Quests
+- Each faction has a unique royal ascent quest, ending with a final quest.
+- Tribute quests are available for each faction, providing different rewards.
+
+### Mod Integration
+- The mod should be placed after all faction mods to avoid conflicts.
+- Save files are not compatible with changes in mod settings, requiring a game restart.
 
 ## Coding Patterns and Conventions
 
-### Coding Patterns:
-- Use of Harmony for patching existing RimWorld methods.
-- XML integration for mod settings and definitions.
-- C# for implementing mod logic and systems.
-- Use of HugsLib for mod options and settings management.
+### C# Coding Standards
+- Follow the standard RimWorld C# coding conventions.
+- Use meaningful variable and method names.
+- Include comments and documentation for complex logic.
 
-### Conventions:
-- Follow RimWorld's coding standards and conventions.
-- Use meaningful and descriptive variable and method names.
-- Comment code where necessary to explain complex logic.
-- Use HugsLib's settings system for mod options and settings management.
-- Use XML for mod definitions and settings where appropriate.
+### XML Integration
+- XML files are used to define mod data and configurations.
+- Ensure that XML files are well-structured and validated against the RimWorld XML schema.
 
-## XML Integration
-
-The mod uses XML for defining mod settings and other configurations. The XML files are located in the `Defs` folder of the mod. The following XML files are used in the mod:
-
-- `Defs/FactionToEmpiresDefs.xml`: Contains definitions for the mod, such as factions, pawns, and events.
-- `Defs/FactionToEmpiresSettings.xml`: Contains settings for the mod, such as options and configurations.
-
-## Harmony Patching
-
-Faction to Empires (Continued) uses Harmony for patching existing RimWorld methods. The following Harmony patches are used in the mod:
-
-- `ThingRequiringRoyalPermissionUtility_IsViolatingRulesOf.cs`: Patches the `IsViolatingRulesOf` method to check for royal permissions.
-- `EmpireMaker.cs`: Patches the `PatchDef` and `PatchRelation` methods to patch definitions and relations for empires.
+### Harmony Patching
+- Use Harmony patches to modify RimWorld behavior without altering the original codebase.
+- Ensure that patches are specific and do not introduce unintended side effects.
 
 ## Suggestions for Copilot
 
-### General Suggestions:
-- Use Copilot to generate code snippets for new features and systems.
-- Use Copilot to generate XML definitions for new factions and pawns.
-- Use Copilot to generate Harmony patches for existing RimWorld methods.
-- Use Copilot to generate code for new mod options and settings.
+### C# Files
+- `generateWorld.cs`: Use Copilot to help with initializing and setting up factions as empires.
+- `QuestNode_GetPawnKind.cs`: Use Copilot to assist with creating and managing quest nodes.
+- `ThingRequiringRoyalPermissionUtility_IsViolatingRulesOf.cs`: Use Copilot to help with permission checks and rules enforcement.
+- `EmpireMaker.cs`: Use Copilot to assist with copying and patching pawn and trader definitions.
 
-### Specific Suggestions:
-- Use Copilot to generate code for the `generateWorld.cs` file, which is responsible for generating the world and empires.
-- Use Copilot to generate code for the `QuestNode_GetPawnKind.cs` file, which is responsible for generating quests and pawns for empires.
-- Use Copilot to generate code for the `EmpireMaker.cs` file, which is responsible for creating empires and their associated definitions and relations.
+### XML Files
+- Use Copilot to generate and validate XML definitions for new factions and empires.
+- Ensure that XML files are correctly integrated into the mod's configuration system.
 
-By following these guidelines and suggestions, developers can use Copilot effectively to generate code and XML for the Faction to Empires (Continued) mod.
+### Harmony Patches
+- Use Copilot to create and test Harmony patches for modifying RimWorld behavior.
+- Ensure that patches are thoroughly tested to avoid conflicts with other mods.
+
+### General Tips
+- Use Copilot to generate and validate XML definitions for new factions and empires.
+- Ensure that XML files are correctly integrated into the mod's configuration system.
+- Use Copilot to generate and test Harmony patches for modifying RimWorld behavior.
+- Ensure that patches are thoroughly tested to avoid conflicts with other mods.
+- Use Copilot to generate and validate XML definitions for new factions and empires.
+- Ensure that XML files are correctly integrated into the mod's configuration system.
+
+## Contributing Guidelines
+
+- Ensure that your code follows the mod's coding standards and conventions.
+- Validate XML files against the RimWorld XML schema.
+- Thoroughly test Harmony patches to avoid unintended side effects.
+- Report any issues or bugs using the provided Discord channel.
+- Use RimSort to sort your mods for optimal compatibility.
+
+By following these guidelines, you can effectively use GitHub Copilot to enhance your work on the Faction to Empires (Continued) mod for RimWorld. Happy modding!
 
 ## Project Solution Guidelines
 - Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
@@ -83,6 +82,14 @@ By following these guidelines and suggestions, developers can use Copilot effect
 - In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
 - For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
 
+
+## Temporary files
+
+- Do not create temporary files, build output, test artifacts, or Copilot session
+  folders inside the mod root.
+- Store temporary artifacts under `%USERPROFILE%\CopilotTemp\[modname]`.
+- Direct build and test output there as well, without changing project settings.
+- Clean up task-specific temporary artifacts when finished.
 
 ## Hard rules (must follow)
 - Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
